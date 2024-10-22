@@ -16,11 +16,11 @@ public class DialogCalculator {
      */
     public static void main(String[] args) {   
       JOptionPane.showMessageDialog(null," WELOME TO ULS GRAB BAR");
-          double total=0,v,gay,ga,bv=0,totals=0,add=0,h,price=0,mm=0,k=0;
+          double total=0,v,gay,ga,bv=0,totals=0,add=0,h,price=0,mm=0,k=0,prices=0,ke=0,nn=0;
           String againe,yu,n,me,again,select,kk="";  
           int tom=5,mn;
-          String pl;
-          String orderreciept="",reciept="",name="";
+          String pl="",pp="";
+          String orderreciept="",reciept="",name="",names="";
          
           
           
@@ -148,17 +148,13 @@ public class DialogCalculator {
                 String l=JOptionPane.showInputDialog(null,"ENTER 'yes' IF YOU WANT TO DO ANOTHER TRANSACTION AND 'no' IF YOU WANT TO STOP");
                 double vb=0;
     
-    if (l.equals("yes")) {
+    if (l.equalsIgnoreCase("yes")) {
     
     do {
                 double currentTotals=0; 
     
     do{
-                 JOptionPane.showMessageDialog(null,"TYPE r FOR RED HORSE:100 pesos\n"
-                + "TYPE s FOR SAN MIGUEL:150 pesos\n"
-                + "TYPE t FOR TANDUAY: 200 pesos\n"
-                + "TYPE b FOR GSM BLUE: 220pesos\n"
-                + "TYPE g FOR GINEBRA:250 pesos ");
+                
                  JOptionPane.showMessageDialog(null," MINIMUM OF 500 PESOS WORTH OF DRINKS WE HAVE 10PERCENT DISCOUNT");
                  String selecte=JOptionPane.showInputDialog(null,"SELECT DRINKS \n"
                    + "+ \"TYPE r FOR RED HORSE:100 pesos\n" 
@@ -168,28 +164,38 @@ public class DialogCalculator {
                    + "TYPE g FOR GINEBRA:250 pesos ");
     
     if (selecte.equalsIgnoreCase("r")) {
+                  prices=100;
+                  names="redhorse";
                   JOptionPane.showMessageDialog(null,"YOU SELECTED RED HORSE");
-                  double ke=Double.parseDouble(JOptionPane.showInputDialog(null,"ENTER QUANTITY"));
+              ke=Double.parseDouble(JOptionPane.showInputDialog(null,"ENTER QUANTITY"));
                   currentTotals = 100 * ke;
     
     } else if (selecte.equalsIgnoreCase("s")) {
+                 prices=150;
+                 names="san miguel";
                   JOptionPane.showMessageDialog(null,"YOU SELECTED SAN MIGUEL");
-                  double ke=Double.parseDouble(JOptionPane.showInputDialog(null,"ENTER QUANTITY"));
+                 ke=Double.parseDouble(JOptionPane.showInputDialog(null,"ENTER QUANTITY"));
                   currentTotals = 150* ke;
      
     } else if (selecte.equalsIgnoreCase("t")) {
+                  prices=200;
+                  names="tanduay";
                   JOptionPane.showMessageDialog(null,"YOU SELECTED TANDUAY");
-                  double ke=Double.parseDouble(JOptionPane.showInputDialog(null,"ENTER QUANTITY"));
+                 ke=Double.parseDouble(JOptionPane.showInputDialog(null,"ENTER QUANTITY"));
                   currentTotals = 200 * ke;
     
     } else if (selecte.equalsIgnoreCase("b")) {
+                 prices=220;
+                 names="gsm blue";
                   JOptionPane.showMessageDialog(null,"YOU SELECTED GSM BLUE");
-                  double ke=Double.parseDouble(JOptionPane.showInputDialog(null,"ENTER QUANTITY"));
+                   ke=Double.parseDouble(JOptionPane.showInputDialog(null,"ENTER QUANTITY"));
                   currentTotals = 220 * ke;
     
     } else if (selecte.equalsIgnoreCase("g")) {
+                  prices=250;
+                  names="ginebra";
                   JOptionPane.showMessageDialog(null,"YOU SELECTED GINEBRA");
-                  double ke=Double.parseDouble(JOptionPane.showInputDialog(null,"ENTER QUANTITY"));
+                   ke=Double.parseDouble(JOptionPane.showInputDialog(null,"ENTER QUANTITY"));
                   currentTotals = 250 * ke;
     
     } else {
@@ -199,19 +205,24 @@ public class DialogCalculator {
     if(n.equalsIgnoreCase("r")){
                    JOptionPane.showMessageDialog(null,"REPEAT");
                    add=currentTotals;}
+                   pl="";
     
     }while(n.equalsIgnoreCase("R"));
                    totals += currentTotals;  {
                    double u;
+                   pl += names + " x " + ke + " = " + (prices * ke) + " pesos\n";
                         
     if(totals>=500){
                    JOptionPane.showMessageDialog(null,"avail promo");
                    u=currentTotals*0.1;
                    totals-=u;
+                    pl += "DISCOUNT: 10% (-" + u + " pesos)\n";
     
     }else{
                   JOptionPane.showMessageDialog(null,"NOT AVAIL PROMO");}}
                  JOptionPane.showMessageDialog(null,"YOUR CURRENT TOTAL BILLS: " + totals);
+                  pl += "TOTAL BILL: " + totals + " pesos\n";
+                 pp += pl;
                   againe=JOptionPane.showInputDialog(null,"ENTER yes IF YOU WANT TO BUY AGAIN AND no IF YOU WANT TO STOP ");
     
     } while (againe.equalsIgnoreCase("yes"));
@@ -223,13 +234,13 @@ public class DialogCalculator {
       break;
       
   }else{
-       v=Double.parseDouble(JOptionPane.showInputDialog("ENTER CASH"));
+       v=Double.parseDouble(JOptionPane.showInputDialog("ENTER CASH "+mn+" / 3"));
                  JOptionPane.showMessageDialog(null,"YOUR CASH IS "+v);
                  vb+=v;
     
                  { if(vb>=totals){
-                 vb=vb-totals;
-                 JOptionPane.showMessageDialog(null,"YOUR CHANGE IS "+ vb);
+                 nn=vb-totals;
+                 JOptionPane.showMessageDialog(null,"YOUR CHANGE IS "+ nn);
                  break;
     
     }else{
@@ -239,7 +250,10 @@ public class DialogCalculator {
     }}
   }
     
-  
+   JOptionPane.showMessageDialog(null, "RECEIPT:\n" +  pp + "CASH " + vb + " pesos\nCHANGE " + nn + " pesos");  
+    }else if(l.equalsIgnoreCase("no")){
+        JOptionPane.showMessageDialog(null,"stop");
+        break;
     }
 }while(true);
     }}
