@@ -15,12 +15,13 @@ public class DialogCalculator {
      * @param args the command line arguments
      */
     public static void main(String[] args) {   
-      JOptionPane.showMessageDialog(null," WELOME TO ULS GRAB BAR");
-          double total=0,v,gay,ga,bv=0,totals=0,add=0,h,price=0,mm=0,k=0,prices=0,ke=0,nn=0;
+            JOptionPane.showMessageDialog(null," WELOME TO ULS GRAB BAR");
+          double total=0,v,gay,ga,bv=0,totals=0,add=0,h,price=0,mm=0,k=0,prices=0,ke=0,nn=0,mj=0;
           String againe,yu,n,me,again,select,kk="";  
           int tom=5,mn;
           String pl="",pp="";
-          String orderreciept="",reciept="",name="",names="";
+          String orderreciept="",reciept="",name="",names="",nj="";
+        
          
           
           
@@ -151,7 +152,8 @@ public class DialogCalculator {
     if (l.equalsIgnoreCase("yes")) {
     
     do {
-                double currentTotals=0; 
+                double currentTotals=0;
+               
     
     do{
                 
@@ -250,7 +252,11 @@ public class DialogCalculator {
     }}
   }
     
-   JOptionPane.showMessageDialog(null, "RECEIPT:\n" +  pp + "CASH " + vb + " pesos\nCHANGE " + nn + " pesos");  
+   JOptionPane.showMessageDialog(null, "RECEIPT:\n" +  pp + "CASH " + vb + " pesos\nCHANGE " + nn + " pesos"); 
+   pp=nj;
+   vb=mj;
+   totals=mj;
+   nn=mj;
     }else if(l.equalsIgnoreCase("no")){
         JOptionPane.showMessageDialog(null,"stop");
         break;
